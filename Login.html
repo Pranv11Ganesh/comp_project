@@ -1,17 +1,19 @@
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <!--Import Google Icon Font-->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!-- Compiled and minified CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    
-    
-        <title>Login Page</title>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+
+  <title>Login Page</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
   <style>
     body {
       display: flex;
@@ -27,10 +29,10 @@
       background: #fff;
     }
 
-    .input-field input[type=date]:focus + label,
-    .input-field input[type=text]:focus + label,
-    .input-field input[type=email]:focus + label,
-    .input-field input[type=password]:focus + label {
+    .input-field input[type=date]:focus+label,
+    .input-field input[type=text]:focus+label,
+    .input-field input[type=email]:focus+label,
+    .input-field input[type=password]:focus+label {
       color: #e91e63;
     }
 
@@ -45,26 +47,27 @@
 </head>
 
 <body>
-    <nav class="nav-wrapper blue">
-        <div class="container">
-            <a href="#" class="brand-logo">Railway Management System</a>
-            <a href="#" class="sidenav-trigger" data-target="mobile-links">
-                <i class="material-icons">menu</i>
-            </a>
-        <ul class="right hide-on-med-and-down">
-            <li><a href="Home_Page.html">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="Login.html">Login</a></li>
-        </ul>
-        </div>
-    </nav>
-    <ul class="sidenav" id="mobile-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+  <nav class="nav-wrapper blue">
+    <div class="container">
+      <a href="#" class="brand-logo hide-on-small-only">Railway Management System</a>
+      <a href="#" class="brand-logo hide-on-med-and-up">RMS</a>
+      <a href="#" class="sidenav-trigger" data-target="mobile-links">
+        <i class="material-icons">menu</i>
+      </a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="Home_Page.html">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
         <li><a href="Login.html">Login</a></li>
-    </ul>
+      </ul>
+    </div>
+  </nav>
+  <ul class="sidenav" id="mobile-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="Login.html">Login</a></li>
+  </ul>
   <div class="section"></div>
   <main>
     <center>
@@ -75,7 +78,8 @@
       <div class="section"></div>
 
       <div class="container">
-        <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+        <div class="z-depth-1 grey lighten-4 row"
+          style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
 
           <form class="col s12" method="post">
             <div class='row'>
@@ -96,8 +100,8 @@
                 <label for='password'>Enter your password</label>
               </div>
               <label style='float: right;'>
-								<a class='pink-text' href='#!'><b>Forgot Password?</b></a>
-							</label>
+                <a class='pink-text' href='#!'><b>Forgot Password?</b></a>
+              </label>
             </div>
 
             <br />
@@ -115,14 +119,14 @@
     <div class="section"></div>
     <div class="section"></div>
   </main>
-        <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
-        <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script>
-            $(document).ready(function(){
-                $('.sidenav').sidenav()
-            })
-        </script>
+  <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.sidenav').sidenav()
+    })
+  </script>
 </body>
 
 </html>
