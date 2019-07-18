@@ -8,8 +8,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--font-awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
     <title>Home</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -188,28 +189,36 @@
 
     <!-- Section: Follow -->
     <section class="section section-follow teal darken-2 white-text center">
+      
       <div class="container">
-        <div class="row">
+          
             <h4>Follow makeiTrain</h4>
             <p>Follow us on social media for special offers</p>
-            <a href="https://facebook.com" target="_blank" class="btn-floating btn-small waves-effect waves-light teal">
-              <i class="fa fa-facebook fa-2x"></i>
-            </a>
-            <a href="https://twitter.com" target="_blank" class="btn-floating btn-small waves-effect waves-light teal">
-              <i class="fa fa-twitter fa-2x"></i>
-            </a>
-            <a href="https://linkedin.com" target="_blank" class="btn-floating btn-small waves-effect waves-light teal">
-              <i class="fa fa-linkedin fa-2x"></i>
-            </a>
-            <a href="https://googleplus.com" target="_blank" class="btn-floating btn-small waves-effect waves-light teal">
-              <i class="fa fa-google-plus fa-2x"></i>
-            </a>
-            <a href="https://pinterest.com" target="_blank" class="btn-floating btn-small waves-effect waves-light teal">
-              <i class="fa fa-pinterest fa-2x"></i>
-            </a>
+            <nav class="navbar-transition cool-navbar z-depth-0 teal darken-2">
+                <div class="container">
+            <ul style="justify-content: center;display:flex">
+
+            <li><a href="https://www.facebook.com" class="tooltipped btn-floating btn-small waves-effect waves-light teal" data-position="top" data-tooltip="Facebook">
+              <i class="fab fa-facebook"></i>
+            </a></li>
+            <li><a href="https://www.twitter.com" class="tooltipped btn-floating btn-small waves-effect waves-light teal" data-positon="bottom" data-tooltip="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a></li>
+            <li><a href="https://www.linkedin.com" class="tooltipped btn-floating btn-small waves-effect waves-light teal" data-positon="bottom" data-tooltip="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a></li>
+            <li><a href="https://www.instagram.com" class="tooltipped btn-floating btn-small waves-effect waves-light teal" data-positon="bottom" data-tooltip="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a></li>
+            <li><a href="https://www.pinterest.com" class="tooltipped btn-floating btn-small waves-effect waves-light teal" data-positon="bottom" data-tooltip="Pinterest">
+              <i class="fab fa-pinterest"></i>
+            </a></li>
+            
+            </ul>
           </div>
-        </div>
-      </div>
+          </nav>
+          </div>
+
     </section>
 
     <!-- Section: Gallery -->
@@ -325,7 +334,7 @@
       $(document).ready(function () {
         $('.sidenav').sidenav();
         $('.scrollspy').scrollSpy();
-
+        $('.tooltipped').tooltip();
 
         // Slider
         // const slider = document.querySelector('.slider');
