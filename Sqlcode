@@ -1,0 +1,146 @@
+Create and Insert statements for Railway Management Databases
+
+Create database Railway_Management_System;
+create table user
+( 
+ User_id varchar(50) PRIMARY KEY,
+ Password varchar(25) NOT NULL,
+ User_Name varchar(100) NOT NULL,
+ Gender char(1) NOT NULL,
+ Age integer(3) NOT NULL CHECK(age>18),
+ Email varchar(100),
+ City varchar(50) NOT NULL);
+
+Create table Journey
+(
+ PNR_No varchar(50) NOT NULL,
+ Train_No varchar(50) NOT NULL,
+ Coach_no varchar(5) NOT NULL,
+ Seat_no int NOT NULL,
+ Date_and_time DATETIME NOT NULL,
+ Booked_User varchar(50) NOT NULL,
+ Passenger_id varchar(50) NOT NULL,
+ Quota varchar(50) NOT NULL,
+ Reservation_Status varchar(50) NOT NULL,
+ CONSTRAINT PRIMARY KEY(PNR_No,Passenger_id));
+
+Create table Station
+(
+ Station_Code varchar(10) PRIMARY KEY,
+ Station_name varchar(100) NOT NULL,
+ NO_of_Platforms integer(2) NOT NULL);
+
+Create table Train
+(
+ Train_no varchar(50) Primary key,
+ Train_name varchar(100) NOT NULL,
+ Source varchar(10) NOT NULL,
+ Destination varchar(10) NOT NULL,
+ Departure_time time NOT NULL,
+ Arrival_time time NOT NULL,
+ Capacity int NOT NULL);
+
+Create table passenger
+(
+ Passenger_id varchar(50) PRIMARY KEY,
+ Passenger_name varchar(100) NOT NULL,
+ Gender char(1) NOT NULL,
+ Age integer(3) NOT NULL CHECK(age>=18));
+ 
+create table Stops
+(
+ Train_no varchar(50) NOT NULL,
+ Station_id varchar(50) NOT NULL,
+ Day varchar(10) NOT NULL,
+ Time time NOT NULL,
+ Platform_no integer(2) NOT NULL,
+ Distance integer(6) NOT NULL,
+ CONSTRAINT PRIMARY KEY(Train_no,Day,Time));
+
+Create table Seats
+(
+ Train_no varchar(50) NOT NULL,
+ Station_id varchar(50) NOT NULL,
+ Type_of_seat varchar(50) NOT NULL,
+ Date_and_time datetime NOT NULL,
+ Availability int NOT NULL
+ CONSTRAINT PRIMARY KEY(Train_no,Type_of_seat,Date_and_time));
+ 
+
+Alter table Journey add constraint buj foreign key (booked_user) references user(user_id) on update cascade on delete cascade;
+Alter table Journey add constraint tnj foreign key (Train_no) references train(train_no) on update cascade on delete cascade;
+Alter table Stops add constraint tnst foreign key (Train_no) references train(train_no) on update cascade on delete cascade;
+Alter table Seats add constraint tns foreign key (Train_no) references train(train_no) on update cascade on delete cascade;
+Alter table Stops add constraint sis foreign key (Station_id) references Station(Station_code) on update cascade on delete cascade;
+Alter table Journey add constraint pij foreign key (passenger_id) referances Passenger(Passenger_id) on update cascade on delete cascade; 
+Alter table Seats add constraint sids foreign key(station_id) refereneces station(station_code) on update cascade on delete cascade;
+
+INSERT INTO USER VALUES("A001","PASSWORD","VIRAT KOHLI","M",37,"KOHLI@GMAIL.COM","BENGALURU");
+INSERT INTO USER VALUES("A002","123456","KUNAL SANIL","M",25,"KUNAL@GMAIL.COM","CHENNAI");
+INSERT INTO USER VALUES("A003","QWERTY","RITIKA H","F",23,"RITIKA@YMAIL.COM","MUMBAI");
+INSERT INTO USER VALUES("A004","A1B2C3","ANAGHA Y","F",45,"ANAGHA@HOTMAIL.COM","KOLKATA");
+INSERT INTO USER VALUES("A005","EJOTY5","DEEKSHA","F",19,"DEEKSHA@YAHOO.COM","DELHI");
+
+INSERT INTO TRAIN VALUES("12028","SHATABDI","SBC","MAS","06:00:00","11:00:00",5000);
+INSERT INTO TRAIN VALUES("12302","KOLKATA RJDHNI","DLI","KOAA","16:55:00","9:55:00",3000);
+INSERT INTO TRAIN VALUES("12611","NZM GARIB RATH","MAS","DLI","06:05:00","10:25:00",2300);
+
+INSERT INTO PASSENGER VALUES("B001","VIKAS C","M",24);
+INSERT INTO PASSENGER VALUES("B002","PRANAV G","M",26);
+INSERT INTO PASSENGER VALUES("B003","RITVIK G","M",34);
+INSERT INTO PASSENGER VALUES("B004","MEDHA M","F",25);
+INSERT INTO PASSENGER VALUES("B005","AKSHARA M","F",24);
+INSERT INTO PASSENGER VALUES("B006","PRANEETH","M",21);
+INSERT INTO PASSENGER VALUES("B007","ANKITH","M",43);
+INSERT INTO PASSENGER VALUES("B008","ANISH","M",78);
+INSERT INTO PASSENGER VALUES("B009","SHREYA","F",34);
+INSERT INTO PASSENGER VALUES("B010","LATHAT","F",35);
+
+INSERT INTO JOURNEY VALUES("C001","12028","B1",12,"2019-01-21 06:00:00","A001","B002",1000,"TATKAL","WL");
+INSERT INTO JOURNEY VALUES("C003","12302","S1",21,"2019-01-11 04:20:00","A002","B008",1200,"DIVYAANG","AVAILABLE");
+INSERT INTO JOURNEY VALUES("C005","12611","S2",23,"2019-03-7 09:30:00","A004","B005",1540,"GENERAL","RAC");
+INSERT INTO JOURNEY VALUES("C006","12028","B2",34,"2019-04-12 08:45:00","A005","B006",1230,"TATKAL","AVAILABLE");
+INSERT INTO JOURNEY VALUES("C008","12302","A4",17,"2019-05-16 23:00:00","A004","B003",1020,"GENERAL","RAC");
+INSERT INTO JOURNEY VALUES("C010","12611",B5",23,"2019-02-22 14:30:00","A004","B010",1234,"PREMIUM TATKAL","WL");
+
+INSERT INTO SEATS VALUES("12028","SBC","AC SLEEPER","2019-01-21 06:10:00",100);
+INSERT INTO SEATS VALUES("12028","SBC","AC CHAIR CAR","2019-01-21 06:10:00",45);
+INSERT INTO SEATS VALUES("12028","MAS","AC SLEEPER","2019-01-21 11:00:00",31);
+INSERT INTO SEATS VALUES("12028","MAS","AC CHAIR CAR","2019-01-21 11:00:00",23);
+INSERT INTO SEATS VALUES("12302","DLI","AC SLEEPER","2019-02-01 16:55:00",32);
+INSERT INTO SEATS VALUES("12302","DLI","AC CHAIR CAR","2019-02-02 09:55:00",21);
+INSERT INTO SEATS VALUES("12302","KOAA","AC SLEEPER","2019-01-25 06:05:00",32);
+INSERT INTO SEATS VALUES("12302","KOAA","AC CHAIR CAR","2019-01-26 10:25:00",36);
+INSERT INTO SEATS VALUES("12302","MAS","AC SLEEPER","2019-03-01 06:05:00",25);
+INSERT INTO SEATS VALUES("12302","MAS","AC CHAIR CAR","2019-03-01 06:05:00",23);
+INSERT INTO SEATS VALUES("12302","DLI","AC SLEEPER","2019-03-012 10:25:00",15);
+INSERT INTO SEATS VALUES("12302","DLI","AC CHAIR CAR","2019-03-02 10:25:00",25);
+
+INSERT INTO STATION VALUES("ALD","Allahabad Junction",11);
+INSERT INTO STATION VALUES("BCT","Mumbai Central",11);
+INSERT INTO STATION VALUES("BNC","Bengaluru Cant Railway Station",11);
+INSERT INTO STATION VALUES("BPL","Bhopal",11);
+INSERT INTO STATION VALUES("DBU","Dodballapur",11);
+INSERT INTO STATION VALUES("DHN","Dhanbad Junction",11);
+INSERT INTO STATION VALUES("DLI","Delhi Junction",11);
+INSERT INTO STATION VALUES("GWL","Gwalior",11);
+INSERT INTO STATION VALUES("KGP","Kharagpur Junction",11);
+INSERT INTO STATION VALUES("KOAA","Kolkata Rilway Station",11);
+INSERT INTO STATION VALUES("KPD","Katpadi Junction",11);
+INSERT INTO STATION VALUES("MAS","Chennai Central",11);
+INSERT INTO STATION VALUES("NGP","Nagpur Junction Railway Station",11);
+INSERT INTO STATION VALUES("PUNE","Pune Junction",11);
+INSERT INTO STATION VALUES("R","Raipur Junction",11);
+INSERT INTO STATION VALUES("RC","Raichur",11);
+INSERT INTO STATION VALUES("SBC","Krantirava Sanolli Rayanna Bangalore",11);
+
+INSERT INTO STOPS VALUES("12028","SBC","TUE","06:00:00",7,0);
+INSERT INTO STOPS VALUES("12028","BNC","TUE","06:09:30",1,5);
+INSERT INTO STOPS VALUES("12028","KPD","TUE","08:59:00",2,232);
+INSERT INTO STOPS VALUES("12028","MAS","TUE","11:00:00",16,362);
+INSERT INTO STOPS VALUES("12302","DLI","SAT","16:55:00",12,0);
+INSERT INTO STOPS VALUES("12302","ALD","SAT","23:41:00",7,634);
+INSERT INTO STOPS VALUES("12302","DHN","SUN","06:37:00",6,1188);
+INSERT INTO STOPS VALUES("12611","MAS","SAT","06:05:00",10,0);
+INSERT INTO STOPS VALUES("12611","BPL","SUN","02:05:00",5,1487);
+INSERT INTO STOPS VALUES("12611","GWL","SUN","06:31:00",6,1875);
