@@ -96,7 +96,13 @@
             <a href="#" data-target="mobile-links" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
               <li>
-                <a href="Search.html">Search</a>
+              <!-- Dropdown menu -->
+                <a class="dropdown-trigger" hover="true"data-target="dropdown1" href="#">Trains<i class="material-icons small white-text right">arrow_drop_down</i></a>
+              <!-- Dropdown Structure -->
+              <ul id='dropdown1' class='dropdown-content collection'>
+                  <li><a href="PNR status.html"><h6>PNR status</h6></a></li>
+                  <li><a href="Search.html"><h6>Search</h6></a></li>
+              </ul>
               </li>
               <li>
                 <a href="#popular">Popular Places</a>
@@ -374,6 +380,11 @@
         $('.sidenav').sidenav();
         $('.scrollspy').scrollSpy();
         $('.tooltipped').tooltip();
+        $('.dropdown-trigger').dropdown({
+          hover:true,
+          coverTrigger:false
+          // belowOrigin:true
+        });
         // $.widget.bridge('uitooltip', $.ui.tooltip);
         // Slider
         // const slider = document.querySelector('.slider');
