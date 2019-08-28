@@ -22,5 +22,6 @@ urlpatterns = [
     path('home/', views.seehome),
     path('login/',views.seelogin),
     path('pnr/',views.seepnr),
-    path('search/',views.seesearch)
+    path('search/',views.seesearch),
+    path('register/',views.seereg)
 ]

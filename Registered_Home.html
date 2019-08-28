@@ -1,3 +1,4 @@
+{%load staticfiles%}
 <html>
 
   <head>
@@ -8,7 +9,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="{% static "BookTicket/css/materialize.css" %} ">
     <!--font-awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
@@ -114,8 +115,22 @@
                 <a href="#contact">Contact</a>
               </li>
               <li>
+                    <label class="dropdown-trigger" for="user" hover="true" data-target="dropdown2" href="#"><i class="material-icons white-text">person_pin</i></label>
+                    <!-- Dropdown Structure -->
+                    <ul id='dropdown2' class='dropdown-content collection'>
+                        {%for i in al%}
+                        
+                            <li><a><h6>{{i.aname}}</h6></a></li>
+                            <li><a><h6>{{i.aemail}}</h6></a></li>
+                            <li><a href="..\home"><h6>Logout</h6></a></li>
+                            {%endfor%}
+              
+                          
+                        </ul>
+                </li>
+              <!-- <li>
                 <a href="..\login">Login</a>
-              </li>
+              </li> -->
             </ul>
           </div>
         </div>
@@ -123,27 +138,39 @@
     </div>
     <a class="material-icons btn-floating waves-light white" id="back2Top" title="Back to top" href="#">arrow_forward</a>
     <ul class="sidenav" id="mobile-links">
+        <div class="container">
+            <li>
+                    <label class="dropdown-trigger" for="user" hover="true" data-target="dropdown4" href="#"><i class="center-align material-icons blue-text medium">person_pin</i></label>
+                    <!-- Dropdown Structure -->
+                    <ul id='dropdown4' class='dropdown-content collection'>
+                            <li><a><h6>Name</h6></a></li>
+                            <li><a><h6>Email</h6></a></li>
+                            <li><a href="..\home"><h6>Logout</h6></a></li>
+                        </ul>
+              </li>
+            </div>
       <li>
         <!-- Dropdown menu -->
-        <a class="dropdown-trigger" hover="true" data-target="dropdown2" href="#">Trains<i class="material-icons small black-text right">arrow_drop_down</i></a>
+        <a class="dropdown-trigger blue-text" hover="true" data-target="dropdown3" href="#">Trains<i class="material-icons small blue-text right">arrow_drop_down</i></a>
         <!-- Dropdown Structure -->
-        <ul id='dropdown2' class='dropdown-content collection'>
-            <li><a href="..\pnr"><h6>PNR status</h6></a></li>
-            <li><a href="..\search"><h6>Search</h6></a></li>
+        <ul id='dropdown3' class='dropdown-content collection'>
+            <li><a href="..\pnr" class="blue-text"><h6>PNR status</h6></a></li>
+            <li><a href="..\search" class="blue-text"><h6>Search</h6></a></li>
         </ul>
       </li>
       <li>
-        <a href="#popular">Popular Places</a>
+        <a href="#popular" class="blue-text">Popular Places</a>
       </li>
       <li>
-        <a href="#gallery">Gallery</a>
+        <a href="#gallery" class="blue-text">Gallery</a>
       </li>
       <li>
-        <a href="#contact">Contact</a>
+        <a href="#contact" class="blue-text">Contact</a>
       </li>
-      <li>
+
+      <!-- <li>
         <a href="..\login">Login</a>
-      </li>
+      </li> -->
     </ul>
 
     <!-- Section: Search -->

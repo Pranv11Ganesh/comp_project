@@ -53,3 +53,8 @@ class Seats(models.Model):
     Availability = models.IntegerField()
     class Meta:
         unique_together=('Train_No','Type_of_seat','Date','Time')
+class Account(models.Model):
+    aname=models.CharField(max_length=100)
+    aemail=models.CharField(max_length=200)
+    apwd=models.CharField(max_length=100)
+    aage=models.IntegerField()
