@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
 
-  <title>Login Page</title>
+  <title>Register</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
@@ -20,14 +20,20 @@
       min-height: 100vh;
       flex-direction: column;
     }
-
+    .gender-male,.gender-female {
+  display: inline-block;
+}
+.gender-female {
+  margin-left: 35px;}
     main {
       flex: 1 0 auto;
-    }
+    
 
     body {
       background: #fff;
     }
+
+
 
     .input-field input[type=date]:focus+label,
     .input-field input[type=text]:focus+label,
@@ -74,18 +80,25 @@
       <h1 class="red-text"><img height="141.5px" width="300px" src="https://i.gifer.com/EbN0.gif"></h1></img>
       <div class="section"></div>
 
-      <h5 class="indigo-text">Please, login into your account</h5>
+      <h5 class="indigo-text">Enter account details</h5>
       <div class="section"></div>
 
       <div class="container">
-        <div class="z-depth-1 grey lighten-4 row"
-          style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+        <div class="z-depth-3 grey lighten-4 row" style="width: 900px; display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
 
-          <form class="col s12" method="post">
+          <form action="#" class="col s12" method="post">
+            {%csrf_token%}
             <div class='row'>
               <div class='col s12'>
               </div>
             </div>
+
+            <div class='row'>
+                <div class='input-field col s12'>
+                  <input class='validate' type='text' name='name' id='name' />
+                  <label for='name'>Enter your name</label>
+                </div>
+              </div>
 
             <div class='row'>
               <div class='input-field col s12'>
@@ -99,21 +112,43 @@
                 <input class='validate' type='password' name='password' id='password' />
                 <label for='password'>Enter your password</label>
               </div>
-              <label style='float: right;'>
-                <a class='pink-text' href='#!'><b>Forgot Password?</b></a>
-              </label>
             </div>
+            <div class='row'>
+                <div class='input-field col s12'>
+                  <input class='validate' type='password' name='repassword' id='password2' />
+                  <label for='password2'>Re-Enter your password</label>
+                </div>
+              </div>
+
+            <div class='row'>
+                <div class='input-field col s12'>
+                  <input class='validate' type='number' name='age' id='age' />
+                  <label for='age'>Enter Age</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="inline-radio left">
+                <!-- <div class="input-field col s6"> -->
+                  <div class="gender-male">
+                    <input class="with-gap" name="gender" type="radio" id="male" required />
+                    <label for="male">Male</label>
+                  </div>
+                  <div class="gender-female">
+                    <input class="with-gap" name="gender" type="radio" id="female" required />
+                    <label for="female">Female</label>
+                  </div>
+                </div>
+              </div>
 
             <br />
             <center>
               <div class='row'>
-                <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect indigo'>Login</button>
+                <button type='submit' name='btn_login' value="Login" class='col s12 btn btn-large waves-effect indigo'>Login</button>
               </div>
             </center>
           </form>
         </div>
       </div>
-      <a href="..\register">Create account</a>
     </center>
 
     <div class="section"></div>
