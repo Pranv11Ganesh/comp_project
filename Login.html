@@ -1,19 +1,26 @@
+{%load staticfiles%}
 <html>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!--Import Google Icon Font-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="{% static "BookTicket/css/materialize.css" %} ">
+    <!--font-awesome-->
+    <link rel="stylesheet" href="{% static "BookTicket/fonts/font-awesome.min.css" %}">
+  
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"> -->
 
+    <!-- <link rel="stylesheet" href="{% static "BookTicket/fonts/font-awesome-2.min.css" %}" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"> -->
 
-  <title>Login Page</title>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+    <title>Home</title>
+    <link href="{% static "BookTicket/fonts/font-awesome-icon.html" %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+      href="{% static "BookTicket/css/materialize-2.css" %}">
   <style>
     body {
       display: flex;
@@ -71,7 +78,7 @@
   <div class="section"></div>
   <main>
     <center>
-      <h1 class="red-text"><img height="141.5px" width="300px" src="https://i.gifer.com/EbN0.gif"></h1></img>
+      <h1 class="red-text"><img height="141.5px" width="300px" src="{% static "BookTicket/images/traingif.gif" %}"></h1></img>
       <div class="section"></div>
 
       <h5 class="indigo-text">Please, login into your account</h5>
@@ -81,7 +88,8 @@
         <div class="z-depth-1 grey lighten-4 row"
           style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
 
-          <form class="col s12" method="post">
+          <form class="col s12" method="post" action="#">
+            {%csrf_token%}
             <div class='row'>
               <div class='col s12'>
               </div>
@@ -119,10 +127,10 @@
     <div class="section"></div>
     <div class="section"></div>
   </main>
-  <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script>
+  <script src="{% static "BookTicket/js/jquery-3.4.0.min.js" %}"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="{% static "BookTicket/js/materialize.min.js" %}"></script>
+    <script>
     $(document).ready(function () {
       $('.sidenav').sidenav()
     })

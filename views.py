@@ -7,7 +7,17 @@ import os
 def seehome(request):
     return render(request,'Home_Page.html')
 def seelogin(request):
-    return render(request,'Login.html')
+    if request.method=="POST":
+        email=request.POST['email']
+        pwd=request.POST['password']
+        a=Account.objects.all()
+        a_list=list(a)
+        for i in range(len(a_list)):
+            print(a_list)
+            if email==a_list[i].aemail:
+               return render(request,'Registered_Home.html',{'al':a_list[i:i+1]})
+    else:
+        return render(request,'Login.html')
 def seepnr(request):
     return render(request,'PNR status.html')
 def seesearch(request):
@@ -33,7 +43,11 @@ def seereg(request):
         lst.aage=age
         lst.save()
         a_list=Account.objects.all()
-        return render(request,'Registered_Home.html',{'al':a_list}) 
+        a_list=list(a_list)
+        print(a_list)    
+        k=a_list[-1:]
+        print(k)
+        return render(request,'Registered_Home.html',{'al':k}) 
         print(al)
     else:
         return render(request,'Register.html')

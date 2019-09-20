@@ -3,7 +3,7 @@ from django.db import models
 
 # Create your models here.
 class user(models.Model):
-    User_id = models.CharField(primary_key=True,max_length=50)
+    User_id = models.IntegerField(primary_key=True)
     Password = models.CharField(max_length=25)
     User_Name = models.CharField(max_length=100)
     Gender = models.CharField(max_length=1)
@@ -11,12 +11,15 @@ class user(models.Model):
     Email = models.CharField(max_length=100)
     City = models.CharField(max_length=50)
 class Journey(models.Model):
-    PNR_No = models.CharField(max_length=50)
+    PNR_No = models.CharField(max_length=10)
     Train_No = models.CharField(max_length=50)
     Coach_No = models.CharField(max_length=5)
     Seat_No = models.IntegerField()
     Date = models.DateField()
     time = models.TimeField()
+    Booked_user=models.CharField(max_length=50)
+    Passenger_id=models.CharField(max_length=50)
+    Quota=models.CharField(max_length=100)
 class Station(models.Model):
     Station_Code = models.CharField(primary_key=True,max_length=10)
     Station_name = models.CharField(max_length=100)
@@ -30,7 +33,7 @@ class Train(models.Model):
     Arrival_time = models.TimeField()
     Capacity = models.IntegerField()
 class passenger(models.Model):
-    Passenger_id = models.CharField(primary_key=True,max_length=50)
+    Passenger_id = models.IntegerField(primary_key=True)
     Passenger_name = models.CharField(max_length=100)
     Gender = models.CharField(max_length=1)
     Age = models.IntegerField()
